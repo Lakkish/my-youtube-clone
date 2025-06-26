@@ -54,4 +54,24 @@ export const NxtWatchProvider = ({ children }) => {
     },
     []
   );
+
+  const value = {
+    isLightTheme,
+    changeTheme,
+    showAdBanner,
+    removeBanner,
+    savedVideosList,
+    isVideoSaved,
+    toggleSaveVideo,
+    likedVideosList,
+    dislikedVideosList,
+    isVideoLiked,
+    isVideoDisliked,
+    addVideoReaction,
+  };
+  return (
+    <NxtWatchContext.Provider value={value}>
+      {children}
+    </NxtWatchContext.Provider>
+  );
 };
