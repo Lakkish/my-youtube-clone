@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Cookies from "js-cookie";
+import axios from "axios";
 import { NxtWatchContext } from "../../context/NxtWatchContext";
 import {
   LoginPageContainer,
@@ -35,6 +36,47 @@ const Login = () => {
   };
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
+  };
+
+  const verifyInputFields = (username, password) => {
+    const isUsernameValid = /^[\w_.@$#]{4,}$/.test(username.trim());
+    const isPwdValid =
+      /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+={}[\]'":;<>,.?~\-|\\]).{8,}$/.test(
+        password.trim()
+      );
+    if (!isUsernameValid) return "Invalid username";
+    if (!isPwdValid) return "Invalid password";
+    return "valid";
+  };
+
+  const authenticateUser = async () => {
+    const userDetailsObject = { username, password };
+    const url = "https://apis.ccbp.in/login";
+    const body = JSON.stringify(userDetailsObject);
+
+    try {
+      const response = await axios.post(url, body);
+      const { jwt_token } = response.data;
+      Cookies.set("jwt_token", jwt_token, { expires: 30 });
+      navigate("/", { replace: true });
+    } catch (error) {
+      const errorMessage = error?.response?.data?.error_msg || "Login failed";
+      setErrorMsg(errorMessage);
+    }
+  };
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    const validity = verifyInputFields(username, password);
+    if (validity === "Invalid username") {
+      setErrorMsg("Please enter a valid username");
+      return;
+    }
+    if (validity === "Invalid password") {
+      setErrorMsg("Please enter a valid password");
+      return;
+    }
+    authenticateUser();
   };
 
   const renderUsernameInputField = () => (
@@ -81,6 +123,11 @@ const Login = () => {
     </UsernameInputFieldContainer>
   );
 
+  const jwtToken = Cookies.get("jwt_token");
+  if (jwtToken !== undefined) {
+    return <Navigate to="/" replace />;
+  }
+
   return (
     <LoginPageContainer theme={isLightTheme}>
       <LoginFormContainer onSubmit={onFormSubmit} theme={isLightTheme}>
@@ -103,3 +150,5 @@ const Login = () => {
     </LoginPageContainer>
   );
 };
+
+export default Login;
