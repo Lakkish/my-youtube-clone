@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { NxtWatchContext } from "../../context/NxtWatchContext";
@@ -108,7 +108,7 @@ const Login = () => {
         value={password}
         onChange={getPassword}
         theme={isLightTheme}
-        autoComplete="true"
+        autoComplete="on"
       />
       <ShowPasswordContainer>
         <ShowPasswordCheckbox
