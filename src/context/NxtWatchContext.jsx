@@ -1,6 +1,19 @@
 import React, { useState, useCallback } from "react";
 
-export const NxtWatchContext = React.createContext();
+export const NxtWatchContext = React.createContext({
+  isLightTheme: true,
+  changeTheme: () => {},
+  showAdBanner: true,
+  removeBanner: () => {},
+  savedVideosList: [],
+  isVideoSaved: () => {},
+  toggleSaveVideo: () => {},
+  likedVideosList: [],
+  dislikedVideosList: [],
+  isVideoLiked: () => {},
+  isVideoDisliked: () => {},
+  addVideoReaction: () => {},
+});
 
 export const NxtWatchProvider = ({ children }) => {
   const [isLightTheme, setIsLightTheme] = useState(true);
@@ -42,14 +55,14 @@ export const NxtWatchProvider = ({ children }) => {
             ? prev.filter((v) => v.id !== videoId)
             : [...prev, videoDetails]
         );
-        setDislikedVideosList((prev) => prev.filter((v) => v.id !== videoId)); // remove dislike if exists
+        setDislikedVideosList((prev) => prev.filter((v) => v.id !== videoId));
       } else if (reactionType === "dislike") {
         setDislikedVideosList((prev) =>
           prev.some((v) => v.id === videoId)
             ? prev.filter((v) => v.id !== videoId)
             : [...prev, videoDetails]
         );
-        setLikedVideosList((prev) => prev.filter((v) => v.id !== videoId)); // remove like if exists
+        setLikedVideosList((prev) => prev.filter((v) => v.id !== videoId));
       }
     },
     []
@@ -69,6 +82,7 @@ export const NxtWatchProvider = ({ children }) => {
     isVideoDisliked,
     addVideoReaction,
   };
+
   return (
     <NxtWatchContext.Provider value={value}>
       {children}
