@@ -16,7 +16,7 @@ import {
   VideoStatsList,
 } from "./styledComponents";
 import "./index.css";
-import NxtWatchContext from "../../context/NxtWatchContext";
+import { NxtWatchContext } from "../../context/NxtWatchContext";
 
 const HomeVideoItemCard = ({ videoDetails }) => {
   const { id, title, viewsCount, publishedAt, channel, thumbnailUrl } =

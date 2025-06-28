@@ -9,7 +9,7 @@ import HomeVideoItemCard from "../HomeVideoItemCard";
 import DesktopNavigationTabs from "../NavigationMenuContainer";
 import LoaderView from "../Loader";
 import FailureView from "../FailureView";
-import NxtWatchContext from "../../context/NxtWatchContext";
+import { NxtWatchContext } from "../../context/NxtWatchContext";
 
 import {
   HomePageContainer,

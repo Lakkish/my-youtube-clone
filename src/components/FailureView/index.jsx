@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import NxtWatchContext from "../../context/NxtWatchContext";
+import { NxtWatchContext } from "../../context/NxtWatchContext";
 import {
   FailureViewContainer,
   FailureViewImage,

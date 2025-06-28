@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ClipLoader } from "react-spinners";
-import NxtWatchContext from "../../context/NxtWatchContext";
+import { NxtWatchContext } from "../../context/NxtWatchContext";
 
 const LoaderView = () => {
   const { isLightTheme } = useContext(NxtWatchContext);

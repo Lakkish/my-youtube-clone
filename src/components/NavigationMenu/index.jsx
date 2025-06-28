@@ -4,7 +4,7 @@ import { GiGamepad } from "react-icons/gi";
 import { MdPlaylistAdd } from "react-icons/md";
 import { NavigationMenu, MenuTab, TabName } from "./styledComponents";
 import { useContext } from "react";
-import NxtWatchContext from "../../context/NxtWatchContext";
+import { NxtWatchContext } from "../../context/NxtWatchContext";
 import "../Header/index.css";
 import "./index.css";
 

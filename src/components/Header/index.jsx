@@ -8,7 +8,7 @@ import { MdClose } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiLogOut } from "react-icons/fi";
 import NavigationTabs from "../NavigationMenu";
-import NxtWatchContext from "../../context/NxtWatchContext";
+import { NxtWatchContext } from "../../context/NxtWatchContext";
 import {
   NavBar,
   NavContent,
