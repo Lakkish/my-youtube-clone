@@ -70,14 +70,14 @@ const NavigationTabs = () => {
       {navMenuTabsContent.map((menuObject) => (
         <MenuTab
           key={menuObject.id}
-          isActive={isActivePath(menuObject.path)}
+          $isActive={isActivePath(menuObject.path)}
           theme={isLightTheme}
           onClick={onTabSelection}
         >
           <Link to={menuObject.path} className="menu-link-item">
             {menuObject.icon}
             <TabName
-              isActive={isActivePath(menuObject.path)}
+              $isActive={isActivePath(menuObject.path)}
               theme={isLightTheme}
             >
               {menuObject.route}

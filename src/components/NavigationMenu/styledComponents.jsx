@@ -19,12 +19,12 @@ export const MenuTab = styled.li`
 
   background-color: ${(props) => {
     if (props.theme === true) {
-      if (props.isActive) {
+      if (props.$isActive) {
         return "#e2e8f0";
       }
     }
     // below block is else block of code for the dark theme
-    if (props.isActive) {
+    if (props.$isActive) {
       return "#606060";
     }
     return "transparent";
@@ -42,7 +42,7 @@ export const TabName = styled.p`
 
   font-family: "Roboto";
   font-size: 18px;
-  font-weight: ${(props) => (props.isActive ? 500 : 400)};
+  font-weight: ${(props) => (props.$isActive ? 500 : 400)};
   line-height: 1.2;
 
   color: ${(props) => (props.theme === true ? "#000000" : "#ffffff")};
