@@ -1,0 +1,47 @@
+.nav-item-icon {
+  height: 23px;
+  width: 23px;
+}
+
+.dark-theme {
+  color: #ffffff;
+  transition: color 0.3s ease-in;
+}
+
+.over-flow {
+  overflow-y: hidden;
+}
+
+.md-nav-item-icon {
+  height: 28px;
+  width: 28px;
+}
+
+.popup-content {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.translate-menu {
+  transform: translateX(100%);
+}
+
+.rotate-close-icon {
+  transform: rotate(180deg);
+}
+
+.toggle-mobile-logout {
+  transform: translateY(100%);
+}
+.toggle-mobile-login {
+  transform: translateY(-100%);
+}
+/* .toggle-mobile-login and .toggle-mobile-logout are used to toggle the 
+visibility of login and logout buttons in mobile view */
+/* .toggle-mobile-login,
+.toggle-mobile-logout {     
+    transition: transform 0.3s ease-in-out;
+    }    */
