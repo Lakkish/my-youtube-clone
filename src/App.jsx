@@ -3,6 +3,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./components/Home";
 import Trending from "./components/Trending";
 import Gaming from "./components/Gaming";
+import SavedVideos from "./components/SavedVideos";
 import Login from "./components/Login";
 import { NxtWatchProvider } from "./context/NxtWatchContext.jsx";
 import "./App.css";
@@ -33,6 +34,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Gaming />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/saved-videos"
+          element={
+            <ProtectedRoute>
+              <SavedVideos />
             </ProtectedRoute>
           }
         />
