@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./components/Home";
+import Trending from "./components/Trending";
 import Login from "./components/Login";
 import { NxtWatchProvider } from "./context/NxtWatchContext.jsx";
 import "./App.css";
@@ -15,6 +16,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trending"
+          element={
+            <ProtectedRoute>
+              <Trending />
             </ProtectedRoute>
           }
         />
