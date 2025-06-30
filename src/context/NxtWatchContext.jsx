@@ -34,39 +34,39 @@ export const NxtWatchProvider = ({ children }) => {
   }, []);
 
   const isVideoSaved = useCallback(
-    (videoId) => savedVideosList.some((v) => v.id === videoId),
+    (video) => savedVideosList.some((v) => v.id === video.id),
     [savedVideosList]
   );
 
   const isVideoLiked = useCallback(
-    (videoId) => likedVideosList.some((v) => v.id === videoId),
+    (video) => likedVideosList.some((v) => v.id === video.id),
     [likedVideosList]
   );
+
   const isVideoDisliked = useCallback(
-    (videoId) => dislikedVideosList.some((v) => v.id === videoId),
+    (video) => dislikedVideosList.some((v) => v.id === video.id),
     [dislikedVideosList]
   );
 
-  const addVideoReaction = useCallback(
-    (videoId, reactionType, videoDetails) => {
-      if (reactionType === "like") {
-        setLikedVideosList((prev) =>
-          prev.some((v) => v.id === videoId)
-            ? prev.filter((v) => v.id !== videoId)
-            : [...prev, videoDetails]
-        );
-        setDislikedVideosList((prev) => prev.filter((v) => v.id !== videoId));
-      } else if (reactionType === "dislike") {
-        setDislikedVideosList((prev) =>
-          prev.some((v) => v.id === videoId)
-            ? prev.filter((v) => v.id !== videoId)
-            : [...prev, videoDetails]
-        );
-        setLikedVideosList((prev) => prev.filter((v) => v.id !== videoId));
-      }
-    },
-    []
-  );
+  const addVideoReaction = useCallback((video, reactionType) => {
+    const videoId = video.id;
+
+    if (reactionType === "LIKE") {
+      setLikedVideosList((prev) =>
+        prev.some((v) => v.id === videoId)
+          ? prev.filter((v) => v.id !== videoId)
+          : [...prev, video]
+      );
+      setDislikedVideosList((prev) => prev.filter((v) => v.id !== videoId));
+    } else if (reactionType === "DISLIKE") {
+      setDislikedVideosList((prev) =>
+        prev.some((v) => v.id === videoId)
+          ? prev.filter((v) => v.id !== videoId)
+          : [...prev, video]
+      );
+      setLikedVideosList((prev) => prev.filter((v) => v.id !== videoId));
+    }
+  }, []);
 
   const value = {
     isLightTheme,
