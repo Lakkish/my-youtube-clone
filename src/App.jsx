@@ -5,6 +5,7 @@ import Trending from "./components/Trending";
 import Gaming from "./components/Gaming";
 import SavedVideos from "./components/SavedVideos";
 import Video from "./components/Video";
+import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 import { NxtWatchProvider } from "./context/NxtWatchContext.jsx";
 import "./App.css";
@@ -54,6 +55,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </NxtWatchProvider>
   );
