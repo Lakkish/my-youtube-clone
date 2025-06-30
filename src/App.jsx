@@ -10,54 +10,60 @@ import Login from "./components/Login";
 import { NxtWatchProvider } from "./context/NxtWatchContext.jsx";
 import "./App.css";
 
+import { Analytics } from "@vercel/analytics/react";
+
 const App = () => {
   return (
-    <NxtWatchProvider>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/trending"
-          element={
-            <ProtectedRoute>
-              <Trending />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/gaming"
-          element={
-            <ProtectedRoute>
-              <Gaming />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/saved-videos"
-          element={
-            <ProtectedRoute>
-              <SavedVideos />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/videos/:id"
-          element={
-            <ProtectedRoute>
-              <Video />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </NxtWatchProvider>
+    <>
+      <Analytics />
+
+      <NxtWatchProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/trending"
+            element={
+              <ProtectedRoute>
+                <Trending />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/gaming"
+            element={
+              <ProtectedRoute>
+                <Gaming />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/saved-videos"
+            element={
+              <ProtectedRoute>
+                <SavedVideos />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/videos/:id"
+            element={
+              <ProtectedRoute>
+                <Video />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </NxtWatchProvider>
+    </>
   );
 };
 
