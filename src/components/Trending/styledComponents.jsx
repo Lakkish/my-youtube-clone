@@ -40,7 +40,7 @@ export const TrendingTabIconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     height: 50px;
     width: 50px;
   }
@@ -54,7 +54,7 @@ export const TrendingTitle = styled.h1`
 
   color: ${(props) => (props.theme === true ? "#000000" : "#ffffff")};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 20px;
   }
 `;
