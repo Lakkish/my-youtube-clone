@@ -44,18 +44,18 @@ const SavedVideoItemCard = ({ videoDetails }) => {
             alt="channel profile"
           />
           <VideoContent>
-            <VideoTitle theme={isLightTheme}>{title}</VideoTitle>
+            <VideoTitle $theme={isLightTheme}>{title}</VideoTitle>
             <VideoStatsContainer>
-              <ChannelName theme={isLightTheme}>
+              <ChannelName $theme={isLightTheme}>
                 {formattedChannelData.channelName}
               </ChannelName>
               <VideoStatsList>
-                <DotSpan2 theme={isLightTheme}>.</DotSpan2>
-                <ViewsCountListItem theme={isLightTheme}>
+                <DotSpan2 $theme={isLightTheme}>.</DotSpan2>
+                <ViewsCountListItem $theme={isLightTheme}>
                   {viewCount}
                 </ViewsCountListItem>
-                <DotSpan theme={isLightTheme}>.</DotSpan>
-                <ViewsCountListItem theme={isLightTheme}>
+                <DotSpan $theme={isLightTheme}>.</DotSpan>
+                <ViewsCountListItem $theme={isLightTheme}>
                   {formattedPublishedAt}
                 </ViewsCountListItem>
               </VideoStatsList>

@@ -74,7 +74,7 @@ export const VideoTitle = styled.p`
   font-weight: 400;
   line-height: 1.3;
 
-  color: ${(props) => (props.theme === true ? "#000000" : "#ffffff")};
+  color: ${({ $theme }) => ($theme === true ? "#000000" : "#ffffff")};
 `;
 
 export const VideoStatsContainer = styled.div`
@@ -93,7 +93,7 @@ export const ChannelName = styled.p`
   font-weight: 400;
   margin-top: 2px;
 
-  color: ${(props) => (props.theme === true ? "#000000" : "#ffffff")};
+  color: ${({ $theme }) => ($theme === true ? "#000000" : "#ffffff")};
   @media screen and (min-width: 567px) {
     font-size: 14px;
     margin-right: 10px;
@@ -110,7 +110,7 @@ export const DotSpan = styled.span`
   line-height: 0.4;
   font-weight: 600;
 
-  color: ${(props) => (props.theme === true ? "#000000" : "#cbd5e1")};
+  color: ${({ $theme }) => ($theme === true ? "#000000" : "#cbd5e1")};
 `;
 
 export const DotSpan2 = styled(DotSpan)`
@@ -134,5 +134,5 @@ export const ViewsCountListItem = styled.p`
   font-weight: 400;
   margin-top: 2px;
 
-  color: ${(props) => (props.theme === true ? "#000000" : "#ffffff")};
+  color: ${({ $theme }) => ($theme === true ? "#000000" : "#ffffff")};
 `;
