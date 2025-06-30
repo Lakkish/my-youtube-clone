@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext, useCallback } from "react";
-import ReactPlayer from "react-player";
 import { formatDistanceToNow } from "date-fns";
 import { BiLike, BiDislike } from "react-icons/bi";
 import { MdPlaylistAdd } from "react-icons/md";
@@ -183,12 +182,31 @@ const Video = () => {
   };
   const renderVideoContent = () => {
     const { videoUrl } = videoItemData;
-    console.log("videoUrl:", videoUrl);
+
+    let videoId = "";
+    if (videoUrl) {
+      const match = videoUrl.match(/[?&]v=([^&#]+)/);
+      if (match && match[1]) {
+        videoId = match[1];
+      }
+    }
+    const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : "";
 
     return (
       <VideoItemDetails>
         <VideoPlayer>
-          <ReactPlayer url={videoUrl} controls width="100%" height="100%" />
+          {embedUrl && (
+            <iframe
+              width="100%"
+              height="100%"
+              src={embedUrl}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{ aspectRatio: "16/9", width: "100%", height: "100%" }}
+            />
+          )}
         </VideoPlayer>
         <VideoDataContainer>
           {renderVideoDetails()}

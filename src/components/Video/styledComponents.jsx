@@ -69,7 +69,6 @@ export const VideoPlayer = styled.div`
   max-width: 1024px;
   aspect-ratio: 16 / 9;
   margin-bottom: 14px;
-  position: relative;
 `;
 
 // Video data container
