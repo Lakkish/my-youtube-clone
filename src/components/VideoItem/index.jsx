@@ -115,24 +115,24 @@ const Video = () => {
     return (
       <ViewStatsContainer>
         <StatsListItem onClick={() => addVideoReaction(videoItemData, "LIKE")}>
-          <LikeButton reaction={isLiked}>
+          <LikeButton $reaction={isLiked}>
             <BiLike />
           </LikeButton>
-          <LikeText reaction={isLiked}>Like</LikeText>
+          <LikeText $reaction={isLiked}>Like</LikeText>
         </StatsListItem>
         <StatsListItem
           onClick={() => addVideoReaction(videoItemData, "DISLIKE")}
         >
-          <DislikeButton reaction={isDisliked}>
+          <DislikeButton $reaction={isDisliked}>
             <BiDislike />
           </DislikeButton>
-          <DislikeText reaction={isDisliked}>Dislike</DislikeText>
+          <DislikeText $reaction={isDisliked}>Dislike</DislikeText>
         </StatsListItem>
         <StatsListItem onClick={() => toggleSaveVideo(videoItemData)}>
-          <SaveButton saved={isSaved}>
+          <SaveButton $saved={isSaved}>
             <MdPlaylistAdd />
           </SaveButton>
-          <SaveText saved={isSaved}>{isSaved ? "Saved" : "Save"}</SaveText>
+          <SaveText $saved={isSaved}>{isSaved ? "Saved" : "Save"}</SaveText>
         </StatsListItem>
       </ViewStatsContainer>
     );
